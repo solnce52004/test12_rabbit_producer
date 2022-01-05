@@ -36,3 +36,39 @@ spring:
 #      trust-store: /Library/Java/JavaVirtualMachines/jdk-11.0.10.jdk/Contents/Home/lib/security/cacerts
     virtual-host: /
 
+  boot:
+    admin:
+      client:
+        enabled: true
+#        урл админки (из контейнера торчит 5555, но nginx перенаправляет на 8000)!!!
+        url: https://solnce52004.ga:5555
+        instance:
+#        урл клиента (из контейнера торчит 8001)
+#          обязательный путь для отображения всех метрик и графиков
+#          в соответствии с настройками маски в настройках ниже
+          management-url: https://solnce52004.ga:8001/actuator
+#          обязательный путь для получения метрик
+          health-url: https://solnce52004.ga:8001/actuator/health
+#          необязательное название клиента для отображения в админке
+          name: "rabbitMQ producer"
+#          обязательный путь к метрикам клиента
+          service-path: /actuator
+#          домашняя страница сервиса (данного клиента)
+          service-url: https://solnce52004.ga:8001
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  config: "classpath:log4j2.properties"
+  level:
+    ROOT: INFO
+    org:
+      springframework.web: DEBUG
+      hibernate: INFO

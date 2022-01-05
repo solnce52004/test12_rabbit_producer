@@ -9,7 +9,7 @@ ARG CERT="server.crt"
 COPY $CERT .
 RUN keytool -importcert -file $CERT -alias santomcat -cacerts -storepass changeit -noprompt
 
-ARG JAR_FILE=./build/libs/test11_admin_jenkins-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=./build/libs/test12-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 
 EXPOSE 8001
