@@ -1,0 +1,28 @@
+server:
+  address: 0.0.0.0
+  port: 8001
+  compression:
+    enabled: true
+  http2:
+    enabled: true
+
+  ssl:
+    enabled: false
+    key-alias: santomcat
+    key-store: classpath:ssl/server.p12
+    key-store-type: PKCS12
+
+    key-password: Zerkalo82
+    key-store-password: Zerkalo82
+    trust-store-password: changeit
+
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 15672
+    username: guest
+    password: guest
