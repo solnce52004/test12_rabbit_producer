@@ -22,7 +22,7 @@ server:
 
 spring:
   rabbitmq:
-    host: ${server.address}
+    host: 188.212.125.157
     # https - 5672, http - 15672
     port: 5672
     username: admin
